@@ -1,0 +1,39 @@
+.prent1 {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 64px;
+  height: 944px; /* matches your Figma hero height */
+}
+
+.text1 {
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.text1 h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.text2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.child2 img {
+  width: 520px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  right: 0%;
+}
