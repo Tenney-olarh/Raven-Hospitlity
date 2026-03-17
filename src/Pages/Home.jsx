@@ -1,9 +1,10 @@
-function Home(){
-  return(
-    <div><h1>
-      home
-    </h1>
-    </div>
-  )
+import HomePageBase from "../Components/HomePage/HomePageBase";
+
+function Home() {
+  return (
+    <>
+      <HomePageBase />
+    </>
+  );
 }
-export default  Home;
+export default Home;
