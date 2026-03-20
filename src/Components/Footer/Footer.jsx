@@ -20,7 +20,7 @@ function Footer() {
 
         <div className="footer__right">
           {footerList.map((list) => (
-            <div className="footer__right-content">
+            <div key={list.id} className="footer__right-content">
               <img src={list.icon} alt={list.alt} />
 
               <div>
@@ -39,7 +39,7 @@ function Footer() {
 
         <ul className="footer__menu">
           {footerMenu.map((menu) => (
-            <li key={menu.name}>
+            <li key={menu.id}>
               <Link to={menu.path}>{menu.name}</Link>
             </li>
           ))}
