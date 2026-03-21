@@ -1,0 +1,106 @@
+@import "./variable.css";
+
+.footer__main {
+  background-color: var(--black-80);
+  padding: 96px 64px;
+  color: var(--white-80);
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.footer__left {
+  max-width: 428px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.footer__left h1 {
+  font-family: var(--font1);
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 400;
+}
+
+.footer__left p {
+  font-family: var(--font2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--white-50);
+}
+
+.footer__left button {
+  color: var(--color1);
+  font-family: var(--font2);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2.4px;
+  border: 1px solid var(--color1);
+  padding: 16px 40px;
+  cursor: pointer;
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.footer__right-content {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__right-title {
+  font-family: var(--font1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--white-70);
+}
+
+.footer__right-content img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer__right-desc {
+  font-family: var(--font2);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--white-40);
+}
+
+.footer__base {
+  background-color: var(--black-100);
+  /* height: 100px; */
+  padding: 42px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--black-60);
+  border-top: 2px solid var(--black-70);
+}
+
+.footer__base p {
+  font-weight: 400;
+  font-family: var(--font2);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+}
+
+.footer__menu {
+  text-decoration: none;
+  font-family: var(--font2);
+  font-weight: 700;
+  display: flex;
+  letter-spacing: 1.1px;
+  gap: 32px;
+  font-size: 11px;
+  color: var(--black-60);
+}

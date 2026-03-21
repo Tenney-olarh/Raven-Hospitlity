@@ -1,77 +1,72 @@
-import { act } from "react";
-import { homeActions, menuItems } from "./config";
-import { Link } from "react-router-dom";
+import "../../Styles/home/home-page.css";
+import { homeActions, menuItems, offerItems } from "./config";
+import Navbar from "./NavBar";
+import Offer from "./Offers";
+import Status from "./Status";
+import Hero from "./Hero";
+import Footer from "../Footer/Footer";
+import { useState, useEffect } from "react";
+import { fetchUserData } from "../../data/mockAPI";
 
-//this will later be modified to directly pull the user's name from the API
+//this will later be modified to directly pull from the API
 
-const userName = "Adaeze";
 const hotelName = "RAVENS LONDON CENTRAL";
-const hotelImage = "/assets/room1.png";
 const roomType = "Luxury King Suite";
-const confirmationID = "RVN8829-24";
+const userCheckinDate = "Oct 24, 2024";
+const userCheckoutDate = "Oct 27, 2024";
+const userFullName = "Adaeze Okonkwo";
 
 /////////////////////////////////////////////
 
 function HomePage() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchUserData()
+      .then((data) => setUser(data))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [user]);
+
+  console.log(user);
+
+  if (loading)
+    return (
+      <p
+        style={{
+          display: "flex",
+          fontSize: "34px",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        Loading....
+      </p>
+    );
+  if (error) return <p>{error}</p>;
+
   return (
-    <body>
-      {/* NAVIGATION BAR SECTION */}
-      <nav className="nav">
-        <img src=".../assets/logo.svg" alt="Site Logo" className="logo" />
-
-        <div className="nav__bar">
-          <ul className="nav__menus">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <Link to={item.path}>{item.name}</Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="nav__avater-wrapper">
-            <img
-              src=".../assets/avater-homepage.jpg"
-              alt="Profile Image"
-              className="nav__avater"
-            />
-          </div>
-        </div>
-      </nav>
-
-      {/* HERO SECTION */}
-      <section className="hero">
-        <h1>Welcome back, {userName}</h1>
-        <p>Your sanctuary in the heart of London awaits your arrival.</p>
-
-        <div className="hero__buttons">
-          {homeActions.map((action) => (
-            <button key={action.text}>
-              <img src={action.icon} alt={action.alt} />
-              {action.text} <span>{">"}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="status">
-        <div className="status__upcoming-event">
-          <h2>Upcoming Journey</h2>
-          <div className="event">
-            <div className="event__img">
-              <img src={hotelImage} alt="Hotel Room" />
-            </div>
-            <div className="event__details">
-              <div>
-                <img src="/assets/location_icon.svg" alt="Location Icon" />{" "}
-                {hotelName}
-              </div>
-              <h3>{roomType}</h3>
-              <p>Confirmation #{confirmationID}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </body>
+    <div className="dashboard">
+      <Navbar menu={menuItems} />
+      <Hero userName={user.firstName} actions={homeActions} />
+      <Status
+        userFullName={user.fullName}
+        pointCount={user.point}
+        remainingPoints={user.remainingPoint}
+        tier={user.tier}
+        nextTier={user.nextTier}
+        hotelName={hotelName}
+        roomType={roomType}
+        confirmationID={user.confirmationID}
+        userCheckinDate={userCheckinDate}
+        userCheckoutDate={userCheckoutDate}
+      />
+      <Offer offers={offerItems} />
+      <Footer />
+    </div>
   );
 }
 export default HomePage;

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* COLORS */
+
+  --color1: hsla(41, 53%, 55%, 1);
+
+  --navbar-bg-color: hsla(40, 23%, 95%, 1);
+
+  --navbar-text-color: hsla(220, 3%, 44%, 1);
+  --dashboard-color1: hsla(222, 47%, 11%, 1);
+  --dashboard-color2: hsla(215, 16%, 47%, 1);
+
+  /* black colors */
+  --black-100: hsla(0, 0%, 4%, 1);
+  --black-80: hsla(0, 0%, 7%, 1);
+
+  --black-70: hsla(215, 28%, 17%, 1);
+  --black-60: hsla(220, 3%, 44%, 1);
+  --black-50: hsla(214, 32%, 91%, 1);
+
+  /* white colors */
+  --white: hsla(0, 0%, 100%, 1);
+  --white-80: hsla(40, 23%, 95%, 1);
+  --white-70: hsla(40, 23%, 95%, 1);
+  --white-50: hsla(220, 8%, 70%, 1);
+  --white-40: hsla(217, 8%, 70%, 1);
+  --white-30: hsla(215, 20%, 65%, 1);
+
+  /* FONT */
+  --font1: "Playfair Display", serif;
+  --font2: "Inter", sans-serif;
+  --font3: "Manrope", sans-serif;
+  --font4: "Public Sans", sans-serif;
+}

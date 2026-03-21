@@ -1,0 +1,8 @@
+@import "./nav.css";
+@import "./hero.css";
+@import "./status.css";
+@import "./offer.css";
+
+.dashboard {
+  background: var(--navbar-bg-color);
+}
