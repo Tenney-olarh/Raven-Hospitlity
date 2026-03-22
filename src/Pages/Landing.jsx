@@ -1,6 +1,6 @@
 import BookingForm from "../Components/Landing/BookingForm"
 import CuratedStays from "../Components/Landing/CuratedStays"
-import footer from "../Components/Landing/Footer"
+import Footer from "../Components/Footer/Footer"
 import Hero from "../Components/Landing/Hero"
 import Navbar from "../Components/Landing/Navbar"
 
@@ -10,6 +10,7 @@ function Landing(){
     <Navbar/>
     <Hero/>
     <CuratedStays/>
+    <Footer/>
     </>
   )
 }

@@ -16,22 +16,12 @@ function Hero(){
     const { name, value } = e.target
 
     setForm(prev => {
-      // Auto set checkout if not selected
       if (name === "checkIn" && !prev.checkOut) {
         const nextDay = new Date(value)
         nextDay.setDate(nextDay.getDate() + 1)
-
-        return {
-          ...prev,
-          checkIn: value,
-          checkOut: nextDay.toISOString().split("T")[0]
-        }
+        return { ...prev, checkIn: value, checkOut: nextDay.toISOString().split("T")[0] }
       }
-
-      return {
-        ...prev,
-        [name]: value
-      }
+      return { ...prev, [name]: value }
     })
   }
 
@@ -41,23 +31,18 @@ function Hero(){
 
   const formatDate = (date) => {
     if (!date) return "Add Date"
-
     const d = new Date(date)
-
     const day = d.getDate()
-    const suffix =
-      day === 1 || day === 21 || day === 31 ? "st" :
-      day === 2 || day === 22 ? "nd" :
-      day === 3 || day === 23 ? "rd" : "th"
-
+    const suffix = day === 1 || day === 21 || day === 31 ? "st" :
+                   day === 2 || day === 22 ? "nd" :
+                   day === 3 || day === 23 ? "rd" : "th"
     const month = d.toLocaleString("en-US", { month: "short" })
     const year = d.getFullYear()
-
     return `${day}${suffix}, ${month}, ${year}`
   }
 
   return (
-    <section className="hero">
+    <section className="hero" id="about">
 
       <div className="hero-wrapper">
 
@@ -86,7 +71,6 @@ function Hero(){
 
             <div className="booking-fields">
 
-              {/* DESTINATION */}
               <div>
                 <small>DESTINATION</small>
                 <input
@@ -97,13 +81,11 @@ function Hero(){
                 />
               </div>
 
-              {/* CHECK IN */}
               <div
                 className="date-field"
                 onClick={() => document.getElementById("checkIn").showPicker()}
               >
                 <small>CHECK IN</small>
-
                 <input
                   id="checkIn"
                   type="date"
@@ -111,19 +93,14 @@ function Hero(){
                   value={form.checkIn}
                   onChange={handleChange}
                 />
-
-                <span>
-                  {form.checkIn ? formatDate(form.checkIn) : "Add Date"}
-                </span>
+                <span>{form.checkIn ? formatDate(form.checkIn) : "Add Date"}</span>
               </div>
 
-              {/* CHECK OUT */}
               <div
                 className="date-field"
                 onClick={() => document.getElementById("checkOut").showPicker()}
               >
                 <small>CHECK OUT</small>
-
                 <input
                   id="checkOut"
                   type="date"
@@ -131,13 +108,9 @@ function Hero(){
                   value={form.checkOut}
                   onChange={handleChange}
                 />
-
-                <span>
-                  {form.checkOut ? formatDate(form.checkOut) : "Add Date"}
-                </span>
+                <span>{form.checkOut ? formatDate(form.checkOut) : "Add Date"}</span>
               </div>
 
-              {/* GUESTS */}
               <div>
                 <small>GUESTS</small>
                 <input
@@ -157,7 +130,6 @@ function Hero(){
 
           </div>
 
-          {/* HERO FOOT */}
           <div className="hero-foot">
             <FaStar />
             <span>THE PREMIER CHOICE FOR GLOBAL TRAVELERS</span>

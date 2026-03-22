@@ -5,7 +5,7 @@ const currentYear = 2026; //will be dynamically assigned with a function later
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="footer" id="why-raven">
       <div className="footer__main">
         <div className="footer__left">
           <h1>The Smarter Way to Stay</h1>

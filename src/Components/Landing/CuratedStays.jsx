@@ -27,7 +27,7 @@ function CuratedStays() {
   ]
 
   return (
-    <section className="stays">
+    <section className="stays" id="stays">
 
       <h2 className="stays-title">Curated Stays</h2>
 
