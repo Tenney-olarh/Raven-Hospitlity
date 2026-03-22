@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { AppleLogo, GoogleLogo } from '../components/BrandIcons';
+import { AppleLogo, GoogleLogo } from '../Components/BrandIcons.jsx';
 import '../Styles/payment.css';
 
 const paymentMethods = [
