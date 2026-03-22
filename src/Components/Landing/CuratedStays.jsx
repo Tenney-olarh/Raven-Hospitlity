@@ -1,6 +1,6 @@
 import "./CuratedStays.css"
 import img1 from "../../assets/suite.png"
-import img2 from "../../assets/Minimalist studio.png"
+import img2 from "../../assets/Minimalist Studio.png"
 import img3 from "../../assets/Container.png"
 
 function CuratedStays() {
