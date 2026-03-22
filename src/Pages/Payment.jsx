@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
 import { AppleLogo, GoogleLogo } from '../components/BrandIcons';
+import '../Styles/index.css';
 
 const paymentMethods = [
   { id: 'card', label: 'Credit Card' },
-  { id: 'apple', label: 'Apple Pay', icon: AppleLogo },
-  { id: 'google', label: 'Google Pay', icon: GoogleLogo },
+  { id: 'apple', label: ' Pay', icon: AppleLogo },
+  { id: 'google', label: ' Pay', icon: GoogleLogo },
 ];
 
 const booking = {
