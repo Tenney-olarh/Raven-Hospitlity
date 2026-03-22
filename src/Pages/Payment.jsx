@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { AppleLogo, GoogleLogo } from '../components/BrandIcons';
-import '../Styles/index.css';
+import '../Styles/payment.css';
 
 const paymentMethods = [
   { id: 'card', label: 'Credit Card' },
