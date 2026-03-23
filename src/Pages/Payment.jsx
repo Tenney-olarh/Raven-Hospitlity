@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { AppleLogo, GoogleLogo } from '../Components/BrandIcons.jsx';
 import '../Styles/payment.css';
+import Footer from '../Components/Footer/Footer';
 
 const paymentMethods = [
   { id: 'card', label: 'Credit Card' },
@@ -45,9 +46,10 @@ export default function Payment() {
       <header className="topbar">
         <div className="brand">
           <div className="logo" aria-hidden="true">
-            <span className="logo-icon">R</span>
+            <a href="#">
+        <img src="/logo.svg" alt="Site Logo" className="logo" />
+      </a>
           </div>
-          <span className="brand-name">Raven</span>
         </div>
 
         <nav className="nav">
@@ -65,10 +67,12 @@ export default function Payment() {
           </a>
         </nav>
 
-        <div className="profile">
-          <div className="avatar" aria-hidden="false">
-            J
-          </div>
+        <div className="nav__avatar-wrapper">
+          <img
+            src="/avatar-homepage.jpg"
+            alt="Profile Image"
+            className="nav__avatar"
+          />
         </div>
       </header>
 
@@ -242,54 +246,7 @@ export default function Payment() {
           </aside>
         </section>
       </main>
-<div className="callout">
-              <div className="callout__content">
-                <h3>The smarter way to stay</h3>
-                <p>
-                  We’ve reimagined luxury for the modern era. No more waiting in lines or standard experiences. Every detail is
-                  calibrated to your personal taste.
-                </p>
-                <button className="callout__cta">Start booking</button>
-              </div>
-              <ul className="callout__features">
-                <li>
-                  <span className="feature-icon">📱</span>
-                  <div>
-                    <strong>Mobile-first booking</strong>
-                    <span>Secure your suite in under 60 seconds with our streamlined mobile interface.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">🗝️</span>
-                  <div>
-                    <strong>Digital key & check‑in</strong>
-                    <span>Bypass the front desk. Your phone is your key, and check‑in is instantaneous.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">💡</span>
-                  <div>
-                    <strong>Personalized preferences</strong>
-                    <span>Room temperature, lighting scenes, and pillow types remembered across every stay.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">🤝</span>
-                  <div>
-                    <strong>Elite concierge</strong>
-                    <span>Dedicated human support for travel arrangements, reservations, and local insights.</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-      <footer className="footer">
-        <span>© {new Date().getFullYear()} Raven Hospitality Group. All rights reserved.</span>
-        <div className="footer__links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Contact</a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
