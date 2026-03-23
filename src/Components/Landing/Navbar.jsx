@@ -4,7 +4,7 @@ import "./Navbar.css"
 function Navbar (){
     return (
         <nav className="navbar">
-           <div className="logo">
+           <div className="navbar-logo">
             <Link to="/"> <img src={logo} alt="Raven Logo" /></Link> 
            </div>
            <ul className="nav-links">
