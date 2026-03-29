@@ -2,8 +2,11 @@ import "./Hero.css"
 import Himg from "../../assets/Luxury Hotel Suite.png"
 import { FaHome, FaKey, FaHeadset, FaCrown, FaStar } from "react-icons/fa"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function Hero(){
+
+  const navigate = useNavigate()
 
   const [form, setForm] = useState({
     destination: "Lagos, Nigeria",
@@ -19,7 +22,11 @@ function Hero(){
       if (name === "checkIn" && !prev.checkOut) {
         const nextDay = new Date(value)
         nextDay.setDate(nextDay.getDate() + 1)
-        return { ...prev, checkIn: value, checkOut: nextDay.toISOString().split("T")[0] }
+        return { 
+          ...prev, 
+          checkIn: value, 
+          checkOut: nextDay.toISOString().split("T")[0] 
+        }
       }
       return { ...prev, [name]: value }
     })
@@ -27,6 +34,9 @@ function Hero(){
 
   const handleSearch = () => {
     console.log("Booking Data:", form)
+
+  
+    navigate("/login")
   }
 
   const formatDate = (date) => {
@@ -144,7 +154,7 @@ function Hero(){
 
       </div>
 
-      {/* FEATURES (FULL WIDTH) */}
+      {/* FEATURES */}
       <div className="hero-features">
 
         <div className="feature">

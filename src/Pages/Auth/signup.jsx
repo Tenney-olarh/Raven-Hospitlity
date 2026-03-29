@@ -13,6 +13,8 @@ function Signup() {
     confirmPassword: ""
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -20,17 +22,41 @@ function Signup() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // ✅ Check passwords match
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
-    // TEMP success (replace with API later)
-    alert("Account created successfully!");
-    navigate("/"); // redirect to home or login
+    setLoading(true);
+
+    try {
+      // ✅ Hardcoded test credentials
+      if (
+        form.name === "Ekerin Adaeze" &&
+        form.email === "admin@gmail.com" &&
+        form.password === "1234"
+      ) {
+        alert("Signup successful!");
+
+        // Optional: store fake token
+        localStorage.setItem("token", "test-token");
+
+        navigate("/login");
+      } else {
+        alert("Invalid test credentials");
+      }
+
+    } catch (err) {
+      console.log("ERROR:", err);
+      alert("Something went wrong");
+
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -86,7 +112,9 @@ function Signup() {
               required
             />
 
-            <button type="submit">Create Account</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Creating Account..." : "Create Account"}
+            </button>
           </form>
 
           <p>
