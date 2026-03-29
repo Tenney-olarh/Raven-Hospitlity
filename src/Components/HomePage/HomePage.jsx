@@ -23,13 +23,12 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchUserData()
-      .then((data) => setUser(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [user]);
-
+useEffect(() => {
+  fetchUserData()
+    .then((data) => setUser(data))
+    .catch((err) => setError(err.message))
+    .finally(() => setLoading(false));
+}, []); 
   console.log(user);
 
   if (loading)
