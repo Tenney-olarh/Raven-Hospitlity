@@ -47,10 +47,16 @@ function HomePage() {
       </p>
     );
   if (error) return <p>{error}</p>;
-
+  const menu =[
+    {id:1,name:"Food", path:"/services/food"},
+    {id:2,name:"Drinks", path:"/services/drinks"},
+    {id:3,name:"Spa", path:"/services/spa"},
+    {id:4,name:"Housekeeping", path:"/services/housekeeping"},
+    {id:5,name:"Activities", path:"/services/activities"},
+  ]
   return (
     <div className="dashboard">
-      <Navbar menu={menuItems} />
+      <Navbar menu={menu  } />
       <Hero userName={user.firstName} actions={homeActions} />
       <Status
         userFullName={user.fullName}

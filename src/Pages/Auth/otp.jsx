@@ -1,7 +1,10 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../Styles/otp.css";
 
 export default function PasscodeAuthPage() {
+  const navigate = useNavigate();
+
   const [passcode, setPasscode] = useState(Array(6).fill(""));
   const [confirmPasscode, setConfirmPasscode] = useState(Array(6).fill(""));
 
@@ -56,9 +59,16 @@ export default function PasscodeAuthPage() {
     const confirm = confirmPasscode.join("");
 
     if (code.length < 6 || confirm.length < 6) return;
-    if (code !== confirm) return;
+
+    if (code !== confirm) {
+      alert("Passcodes do not match");
+      return;
+    }
 
     alert("Passcode set successfully!");
+
+ 
+    navigate("/home");
   };
 
   return (
