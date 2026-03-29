@@ -1,0 +1,193 @@
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+   to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes zoomBg {
+    0% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+.login-parent {
+    position: relative;  /* important */
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+/* Background layer */
+.login-parent::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(https://i.pinimg.com/1200x/2c/b2/8a/2cb28ad4549029c292089808dc1eb359.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1.0px);   
+    transform: scale(1.05);
+    z-index: -1;
+    animation: zoomBg 20s ease-in-out infinite;
+}
+.login-parent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* adjust darkness */
+    z-index: -1;
+}
+.login-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    color: #ede0c4;  
+}
+.login-logo img{
+    width: 200px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+.login-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px 80px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeSlideUp 1s ease forwards;
+}
+.login-childa{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.login-childa h6{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color:#e4d1a6;
+    font-weight: 600;
+}
+.login-childa h1{
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ede0c4; 
+}
+.login-childa h5{
+    font-size: 16px;
+    color: #e4d1a6;
+}
+.login-form{
+      background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid#c9a24d; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+    width: 320px;
+}
+.login-form:hover{
+    border: 1px solid #e4d1a6;
+}
+.login-form h2{
+    color: #c9a24d;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+.login-form input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+    transition: all 0.3s ease;
+}
+.login-form input::placeholder{
+    color: rgba(255,255,255,0.6);
+}
+.login-form input:focus{
+    border-bottom: 1px solid #e4d1a6; 
+     border-bottom: 1px solid #e4d1a6;
+    transform: scale(1.02);
+}
+.login-form button{
+    width: 100%;
+    padding: 12px;
+    background: #e4d1a6;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    transition: all 0.3s ease;
+}
+
+.login-form button:hover{
+    background: #ede0c4;
+     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.form-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.form-bottom a{
+    color: #e4d1a6;
+    text-decoration: none;
+}
+.form-bottom label{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.form-bottom input[type="checkbox"]{
+    accent-color: #c9a24d; 
+    width: 14px;
+    height: 14px;
+}
+.login-form p{
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-form p a{
+    color: #c9a24d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-form p a:hover{
+    text-decoration: underline;
+}

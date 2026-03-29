@@ -1,0 +1,103 @@
+.activity-section {
+  width: 100%;
+}
+
+.activity-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #120D1B;
+}
+
+/* GRID */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.activity-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.activity-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.activity-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.activity-content {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* DESCRIPTION */
+.activity-desc {
+  font-size: 13px;
+  color: #444;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* DURATION */
+.activity-duration {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* BOTTOM */
+.activity-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* PRICE */
+.price {
+  color: #c89b3c;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.activity-bottom button {
+  background: none;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.activity-bottom button:hover {
+  color: #c89b3c;
+  transform: translateX(3px);
+}

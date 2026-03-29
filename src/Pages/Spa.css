@@ -1,0 +1,96 @@
+.spa-section {
+  width: 100%;
+}
+
+.spa-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #120D1B;
+}
+
+/* GRID */
+.spa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.spa-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.spa-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.spa-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.spa-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.spa-content {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* DESCRIPTION */
+.spa-desc {
+  font-size: 13px;
+  color: #444;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* BOTTOM */
+.spa-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.spa-name{
+  font-size: 13px;
+  color: #444;
+  font-weight: 600; 
+}
+
+.price {
+  color: #c89b3c;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.spa-bottom button {
+  background: none;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.spa-bottom button:hover {
+  color: #c89b3c;
+  transform: translateX(3px);
+}

@@ -1,0 +1,142 @@
+.service-layout{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  
+}
+.dashboards{
+  display: flex;
+  width: "100%";
+  /* height: 100vh; */
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background:#ffffff; 
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-info {
+  font-size: 12px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #120D1B;
+}
+.sidebar h6{
+  color: #C28C1F;
+}
+.sidebar h2{
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+/* LINKS */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 18px;
+}
+
+.sidebar a {
+  color:black;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+.sidebar a.active {
+  background: #c89b3c;
+  color: #fff;
+}
+
+/* HOVER */
+.sidebar a:hover {
+  background: #C28C1F;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* NAVBAR */
+.servnavbar {
+  height: 70px;
+  background: #ffffff;
+  /* width: calc(100vw - 20px); */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* LOGO */
+.servnav-logo{
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.servnav-logo img {
+  height: 35px;
+  flex-shrink: 0;
+}
+
+/* SEARCH */
+.servnav-centre input {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none ;
+}
+
+.servnavbar input:focus {
+  border-color: #c89b3c;
+}
+.servnav-centre{
+  display:flex;
+  justify-content: center;
+  width: 350px;
+}
+
+/* ICONS */
+.servnav-icons {
+  display: flex;
+  font-size: 20px;
+  color: #120D1B;
+  /* width: 200px; */
+  justify-content: flex-end;
+  margin-left: 5px;
+  gap: 15px;
+
+}
+.servnav-icons svg{
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.servnav-icons svg:hover {
+  color: #c89b3c;
+  transform: scale(1.1);
+}
+.main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 0; */
+}
+.content{
+  flex: 1;
+  padding: 30px;
+  background: #f6f4f1;
+  overflow-y: auto;
+  /* min-height: 0; */
+}
