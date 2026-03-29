@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./Otp.css";
+import "./styles/home/otp.css";
 
 export default function PasscodeAuthPage() {
   const [passcode, setPasscode] = useState(Array(6).fill(""));
