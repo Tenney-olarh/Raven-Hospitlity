@@ -88,8 +88,54 @@
   cursor: pointer;
   font-weight: 600;
 }
-@media(max-width: 900px){
+@media (max-width: 1024px){
+  .stays{
+    padding: 48px 40px;
+  }
+  .stays-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stay-card{
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px){
+  .stays{
+    padding: 40px 24px;
+  }
+  .stays-title{
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px){
   .stays-grid{
     grid-template-columns: 1fr;
+    gap: 20px;
   }
-} 
+}
+
+@media (max-width: 480px){
+  .stays{
+    padding: 32px 16px;
+  }
+  .stays-title{
+    font-size: 22px;
+  }
+  .stay-img{
+    height: 180px;
+  }
+  .stay-content{
+    padding: 16px;
+  }
+  .stay-bottom{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stay-bottom button{
+    margin-left: auto;
+  }
+}
+
