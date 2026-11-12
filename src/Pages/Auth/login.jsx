@@ -31,10 +31,10 @@ function Login() {
         <header className="login-childa">
           <h6>A NEW STANDARD IN HOSPITALITY</h6>
           <h1>
-            Where Every Stay <br /> Feels Intentional
+            Where Every Stay <br className="login-break" /> Feels Intentional
           </h1>
           <h5>
-            Raven brings together seamless booking, <br />
+            Raven brings together seamless booking, <br className="login-break" />
             digital check-in, and curated guest experiences
           </h5>
         </header>
@@ -47,8 +47,8 @@ function Login() {
             <input type="password" placeholder="Password" required />
 
             <div className="form-bottom">
-              <label>
-                <input type="checkbox" /> Remember me
+              <label htmlFor="remember-me">
+                <input type="checkbox" id="remember-me" /> Remember me
               </label>
               <Link to="/otp">Forgot password?</Link>
             </div>

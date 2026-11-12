@@ -23,9 +23,11 @@
     position: relative;  /* important */
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    /* height: 100vh; */
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Background layer */
@@ -101,7 +103,8 @@
     border-radius: 12px;
     border: 1px solid#c9a24d; 
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
 }
 .login-form:hover{
     border: 1px solid #e4d1a6;
@@ -174,6 +177,16 @@
     accent-color: #c9a24d; 
     width: 14px;
     height: 14px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    flex: 0 0 auto;
+    vertical-align: middle;
+}
+
+.form-bottom input[type="checkbox"]:focus{
+    transform: none;
+    border: none;
 }
 .login-form p{
     color: rgba(255,255,255,0.7);
@@ -190,4 +203,94 @@
 
 .login-form p a:hover{
     text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .login-logo {
+        margin-top: 24px;
+    }
+
+    .login-logo img {
+        width: 170px;
+    }
+
+    .login-child {
+        padding: 32px 20px 60px;
+    }
+
+    .login-childa h1 {
+        font-size: 34px;
+    }
+
+    .login-form {
+        padding: 32px 24px;
+    }
+
+    .login-form input {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-logo {
+        margin-top: 20px;
+    }
+
+    .login-logo img {
+        width: 140px;
+    }
+
+    .login-child {
+        padding: 24px 16px 48px;
+    }
+
+    .login-childa {
+        margin-bottom: 24px;
+    }
+
+    .login-childa h6 {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .login-childa h1 {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .login-childa h5 {
+        font-size: 14px;
+    }
+
+    .login-break {
+        display: none;
+    }
+
+    .login-form {
+        padding: 24px 18px;
+    }
+
+    .login-form h2 {
+        margin-bottom: 24px;
+    }
+
+    .form-bottom {
+        flex-wrap: wrap;
+        gap: 10px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .login-child {
+        padding: 20px 12px 40px;
+    }
+
+    .login-childa h1 {
+        font-size: 24px;
+    }
+
+    .login-form {
+        padding: 20px 14px;
+    }
 }
