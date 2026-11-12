@@ -16,9 +16,9 @@ function ServiceLayout() {
           <h2>Welcome Adaeze</h2>
         <h6>Room 605</h6>
        <p>Presidential Suite</p>
-      </div>
+       </div>
 
-      <ul>
+       <ul>
         <li>
           <NavLink to="/services/food">
             <FaUtensils /> Food
@@ -48,7 +48,7 @@ function ServiceLayout() {
            <FaSwimmer /> Activities
           </NavLink>
         </li>
-</ul>
+        </ul>
       </div>
 
       {/* MAIN */}

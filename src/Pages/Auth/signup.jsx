@@ -5,55 +5,61 @@ import logo from "../../assets/logo.svg";
 
 function Signup() {
   const navigate = useNavigate();
-
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
-
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // ✅ Check passwords match
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
     setLoading(true);
-
     try {
-      // ✅ Hardcoded test credentials
-      if (
-        form.name === "Ekerin Adaeze" &&
-        form.email === "admin@gmail.com" &&
-        form.password === "1234"
-      ) {
-        alert("Signup successful!");
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          password: form.password,
+        }),
+      });
 
-        // Optional: store fake token
-        localStorage.setItem("token", "test-token");
-
-        navigate("/login");
-      } else {
-        alert("Invalid test credentials");
+      let data = {};
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        try {
+          data = await response.json();
+        } catch (jsonErr) {
+          console.warn("Failed to parse JSON:", jsonErr);
+        }
       }
 
+      if (response.ok) {
+        alert("Signup successful!");
+        if (data.token) localStorage.setItem("token", data.token);
+        navigate("/login");
+      } else {
+        const errorMsg =
+          data.message ||
+          data.error ||
+          `Error ${response.status}: ${response.statusText}`;
+        alert(`Signup failed: ${errorMsg}`);
+        console.error("API Error:", data);
+      }
     } catch (err) {
-      console.log("ERROR:", err);
-      alert("Something went wrong");
-
+      console.error("Fetch Error:", err);
+      alert("Network error. Check console.");
     } finally {
       setLoading(false);
     }
@@ -61,7 +67,6 @@ function Signup() {
 
   return (
     <div className="signup-parent">
-
       <div className="signup-logo">
         <Link to="/">
           <img src={logo} alt="logo" />
@@ -69,7 +74,6 @@ function Signup() {
       </div>
 
       <div className="signup-child">
-
         <div className="signup-text">
           <h6>JOIN THE EXPERIENCE</h6>
           <h1>Create Your Account</h1>
@@ -121,7 +125,6 @@ function Signup() {
             Already have an account? <Link to="/login">Sign In</Link>
           </p>
         </div>
-
       </div>
     </div>
   );
