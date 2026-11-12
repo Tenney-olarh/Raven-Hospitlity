@@ -62,15 +62,15 @@ function Hero(){
           <p className="hero-tag">A NEW STANDARD IN HOSPITALITY</p>
 
           <h1 className="hero-title">
-            Where Every <br />
-            Stay Feels Like <br />
-            It Was Made for <br />
+            Where Every <br className="hero-break" />
+            Stay Feels Like <br className="hero-break" />
+            It Was Made for <br className="hero-break" />
             You.
           </h1>
 
           <p className="hero-desc">
-            Experience the quiet confidence of refined luxury. <br />
-            We blend traditional Nigerian warmth with <br />
+            Experience the quiet confidence of refined luxury. <br className="hero-break" />
+            We blend traditional Nigerian warmth with <br className="hero-break" />
             contemporary editorial precision.
           </p>
 

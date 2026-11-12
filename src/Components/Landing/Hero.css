@@ -210,3 +210,135 @@
     margin-top: 0%;
     margin-bottom: 0%;
 } */
+
+/* RESPONSIVE */
+@media (max-width: 1200px){
+    .hero-left{
+        padding-left: 24px;
+    }
+    .hero-title{
+        font-size: 48px;
+    }
+    .hero-right{
+        margin-right: -40px;
+    }
+    .hero-features{
+        padding: 25px 32px;
+    }
+}
+
+@media (max-width: 992px){
+    .hero-title{
+        font-size: 42px;
+    }
+    .hero-right{
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .hero-right img{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .booking-fields{
+        flex-wrap: wrap;
+    }
+    .booking-fields div{
+        flex: 1 1 45%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    .booking-fields div:nth-child(odd){
+        padding-right: 10px;
+    }
+    .booking-fields div:nth-last-child(-n+2){
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px){
+    .hero#about{
+        margin-top: 0;
+        padding-top: 96px;
+        padding-inline: 0;
+    }
+    .hero-wrapper{
+        flex-direction: column;
+        gap: 0;
+    }
+    .hero-left{
+        margin-top: 0;
+        margin-bottom: 40px;
+        padding: 0 24px;
+    }
+    .hero-title{
+        font-size: 38px;
+    }
+    .hero-desc{
+        max-width: 100%;
+    }
+    .hero-break{
+        display: none;
+    }
+    .hero-right{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .hero-right img{
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        border-radius: 0;
+    }
+    .hero-features{
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 480px){
+    .hero-left{
+        padding: 0 16px;
+    }
+    .hero-title{
+        font-size
+        px;
+    }
+    .hero-desc{
+        font-size: 14px;
+    }
+    .hero-tag{
+        font-size: 10px;
+        margin-bottom: 20px;
+    }
+    .booking-box{
+        padding: 16px;
+    }
+    .booking-fields{
+        flex-direction: column;
+        gap: 12px;
+    }
+    .booking-fields div{
+        flex: 1 1 100%;
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+    .booking-fields div:nth-child(odd){
+        padding-right: 0;
+    }
+    .booking-fields div:nth-last-child(-n+2){
+        border-bottom: 1px solid #eee;
+    }
+    .booking-fields div:last-child{
+        border-bottom: none;
+    }
+    .hero-features{
+        justify-content: flex-start;
+        gap: 14px 20px;
+    }
+    .feature{
+        flex: 0 0 calc(50% - 10px);
+    }
+}
