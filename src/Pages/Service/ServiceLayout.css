@@ -6,8 +6,9 @@
   
 }
 .dashboards{
+  position: relative;
   display: flex;
-  width: "100%";
+  width: 100%;
   /* height: 100vh; */
 }
 
@@ -19,6 +20,29 @@
   padding: 25px 20px;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar.closed {
+  display: none;
+}
+
+.servnav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #120D1B;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.servnav-toggle:hover {
+  color: #c89b3c;
 }
 
 .room-info {
@@ -139,4 +163,60 @@
   background: #f6f4f1;
   overflow-y: auto;
   /* min-height: 0; */
+}
+
+/* Responsive service navbar & sidebar */
+@media (max-width: 768px) {
+  .servnav-toggle {
+    display: flex;
+  }
+
+  .servnavbar {
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .servnav-logo {
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .servnav-logo img {
+    height: 30px;
+  }
+
+  .servnav-centre {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+
+  .servnav-centre input {
+    max-width: none;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .content {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .servnav-centre input {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .servnav-icons {
+    gap: 10px;
+    font-size: 18px;
+  }
 }

@@ -1,5 +1,5 @@
 import "../../Styles/home/home-page.css";
-import { homeActions, menuItems, offerItems } from "./config";
+import { homeActions, offerItems } from "./config";
 import Navbar from "./NavBar";
 import Offer from "./Offers";
 import Status from "./Status";
@@ -14,7 +14,6 @@ const hotelName = "RAVENS LONDON CENTRAL";
 const roomType = "Luxury King Suite";
 const userCheckinDate = "Oct 24, 2024";
 const userCheckoutDate = "Oct 27, 2024";
-const userFullName = "Adaeze Okonkwo";
 
 /////////////////////////////////////////////
 

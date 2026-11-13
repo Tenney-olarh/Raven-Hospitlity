@@ -2,7 +2,7 @@ import {Link,NavLink,Outlet} from "react-router-dom"
 import {useState} from "react"
 import "./ServiceLayout.css"
 import logo from "../../assets/logo.svg"
-import { FaBell,FaUserCircle,FaUtensils, FaCocktail, FaSpa, FaBroom, FaSwimmer } from "react-icons/fa"
+import { FaBell,FaUserCircle,FaUtensils, FaCocktail, FaSpa, FaBroom, FaSwimmer, FaBars } from "react-icons/fa"
 import Footer from "../../Components/Footer/Footer"
 function ServiceLayout() {
   const [isOpen, setIsopen] = useState(true)
@@ -56,6 +56,14 @@ function ServiceLayout() {
 
         {/* NAVBAR */}
         <div className="servnavbar">
+          <button
+            className="servnav-toggle"
+            onClick={() => setIsopen((prev) => !prev)}
+            aria-label="Toggle sidebar"
+            aria-expanded={isOpen}
+          >
+            <FaBars />
+          </button>
            <div className="servnav-logo">
              <Link to="/"> <img src={logo} alt="Raven Logo" /></Link> 
             </div>
