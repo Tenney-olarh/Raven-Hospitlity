@@ -35,6 +35,7 @@ export const offerItems = [
     alt: "Midnight Spirits",
     title: "Midnight Spirits Mixology",
     desc: "Private class at The Gilded Crow Bar",
+    path: "/services/drinks",
   },
 
   {
@@ -43,6 +44,7 @@ export const offerItems = [
     alt: "Obsidian Stone Therapy",
     title: "Obsidian Stone Therapy",
     desc: "Revitalize at the Sanctuary Spa",
+    path: "/services/spa",
   },
 
   {
@@ -51,6 +53,7 @@ export const offerItems = [
     alt: "Vintage Tour",
     title: "Vintage Heritage Tour",
     desc: "Chauffeur-driven city exploration",
+    path: "/services/activities",
   },
 
   {
@@ -59,5 +62,6 @@ export const offerItems = [
     alt: "Raven Tea",
     title: "The Raven's Tea",
     desc: "Award-winning afternoon service",
+    path: "/services/food",
   },
 ];
