@@ -101,3 +101,54 @@
   color: #c89b3c;
   transform: translateX(3px);
 }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .drink-grid-curated {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .drink-img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .drink-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .drink-grid-curated {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .drink-img {
+    height: 200px;
+  }
+
+  .drink-content {
+    padding: 14px 16px;
+  }
+
+  .drink-bottom {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .drink-bottom button {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .drink-title {
+    font-size: 22px;
+  }
+
+  .drink-img {
+    height: 170px;
+  }
+}

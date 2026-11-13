@@ -5,7 +5,9 @@ import logo from "../../assets/logo.svg"
 import { FaBell,FaUserCircle,FaUtensils, FaCocktail, FaSpa, FaBroom, FaSwimmer, FaBars } from "react-icons/fa"
 import Footer from "../../Components/Footer/Footer"
 function ServiceLayout() {
-  const [isOpen, setIsopen] = useState(true)
+  const [isOpen, setIsopen] = useState(
+    () => !window.matchMedia("(max-width: 768px)").matches
+  )
   return (
    <div className="service-layout">
      <div className="dashboards">
