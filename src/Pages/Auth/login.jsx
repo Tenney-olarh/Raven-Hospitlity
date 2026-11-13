@@ -12,7 +12,7 @@ function Login() {
     const password = e.target[1].value;
 
     // temporary login check
-    if (email === "admin@gmail.com" && password === "1234") {
+    if (email === "admin@gmail.com" && password === "12345678") {
       navigate("/home"); // redirect to homepage
     } else {
       alert("Invalid credentials");

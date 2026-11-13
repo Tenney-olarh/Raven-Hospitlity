@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import Payment from "./Pages/Payment";
 import Login from "./Pages/Auth/login";
 import Signup from "./Pages/Auth/signup";
-import Otp from "./Pages/Auth/Otp";
+import Otp from "./Pages/Auth/otp";
 import ServiceLayout from "./Pages/Service/ServiceLayout";
 import "./Styles/global.css";
 import "./Styles/variable.css";
