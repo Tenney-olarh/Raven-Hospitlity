@@ -14,9 +14,9 @@
     position: absolute;
     inset: 0;
     background: url("/auth-background.webp") center/cover no-repeat;
-    filter: blur(2px);
-    transform: scale(1.1);
-    animation: zoomBg 20s ease-in-out infinite;
+    filter: blur(1px);
+    transform: scale(1.05);
+    animation: signupZoomBg 20s ease-in-out infinite;
     z-index: -2;
 }
 
@@ -24,7 +24,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.4);
     z-index: -1;
 }
 
@@ -71,6 +71,8 @@
 .signup-form {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     padding: 30px;
     border-radius: 12px;
     border: 1px solid #c9a24d;
@@ -145,9 +147,10 @@
     50% { transform: translateY(-5px); }
 }
 
-@keyframes zoomBg {
-    0%,100% { transform: scale(1.1); }
-    50% { transform: scale(1.15); }
+/* Renamed so it can't collide with Login.css's global `zoomBg` keyframes. */
+@keyframes signupZoomBg {
+    0%,100% { transform: scale(1.05); }
+    50% { transform: scale(1.1); }
 }
 
 /* RESPONSIVE */
