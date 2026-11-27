@@ -18,7 +18,15 @@ function Offer({ offers }) {
             className="offer__details"
           >
             <div className="offer__image-wrapper">
-              <img src={offer.image} alt={offer.alt} className="offer__image" />
+              <img
+                src={offer.image}
+                alt={offer.alt}
+                className="offer__image"
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <h3 className="offer__title">{offer.title}</h3>

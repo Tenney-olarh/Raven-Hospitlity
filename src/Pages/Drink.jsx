@@ -76,7 +76,7 @@ function Drink() {
           <div className="drink-card-curated" key={item.id}>
 
             <div className="drink-img">
-              <img src={item.img} alt="drink item" />
+              <img src={item.img} alt="drink item" loading="lazy" decoding="async" />
             </div>
 
             <div className="drink-content">

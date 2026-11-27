@@ -76,7 +76,7 @@ function Spa() {
           <div className="spa-card" key={item.id}>
 
             <div className="spa-img">
-              <img src={item.img} alt="spa service" />
+              <img src={item.img} alt="spa service" loading="lazy" decoding="async" />
             </div>
 
             <div className="spa-content">

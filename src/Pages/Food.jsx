@@ -76,7 +76,7 @@ function Food() {
           <div className="food-card-curated" key={item.id}>
 
             <div className="food-img">
-              <img src={item.img} alt="food item" />
+              <img src={item.img} alt="food item" loading="lazy" decoding="async" />
             </div>
 
             <div className="food-content">

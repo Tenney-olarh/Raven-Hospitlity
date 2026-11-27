@@ -17,7 +17,14 @@ function Status({
         <h2 className="status__title">Upcoming Journey</h2>
         <div className="event">
           <div className="event__img">
-            <img src="/room1.png" alt="Hotel Room" />
+            <img
+              src="/room1.webp"
+              alt="Hotel Room"
+              width="512"
+              height="512"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <div className="event__details">

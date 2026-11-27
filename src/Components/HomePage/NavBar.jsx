@@ -34,9 +34,11 @@ function Navbar({ menu }) {
         {/* Avatar */}
         <div className="nav__avatar-wrapper">
           <img
-            src="/avatar-homepage.jpg"
+            src="/avatar-homepage.webp"
             alt="Profile Image"
             className="nav__avatar"
+            width="80"
+            height="80"
           />
         </div>
 

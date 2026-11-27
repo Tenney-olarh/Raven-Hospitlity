@@ -85,7 +85,7 @@ function Housekeeping() {
           <div className="house-card" key={item.id}>
 
             <div className="house-img">
-              <img src={item.img} alt={item.name} />
+              <img src={item.img} alt={item.name} loading="lazy" decoding="async" />
             </div>
 
             <div className="house-content">

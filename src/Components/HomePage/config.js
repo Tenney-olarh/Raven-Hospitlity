@@ -31,7 +31,7 @@ export const homeActions = [
 export const offerItems = [
   {
     id: 1,
-    image: "/offer-image1.png",
+    image: "/offer-1.webp",
     alt: "Midnight Spirits",
     title: "Midnight Spirits Mixology",
     desc: "Private class at The Gilded Crow Bar",
@@ -40,7 +40,7 @@ export const offerItems = [
 
   {
     id: 2,
-    image: "/offer-image2.png",
+    image: "/offer-2.webp",
     alt: "Obsidian Stone Therapy",
     title: "Obsidian Stone Therapy",
     desc: "Revitalize at the Sanctuary Spa",
@@ -49,7 +49,7 @@ export const offerItems = [
 
   {
     id: 3,
-    image: "/offer-image3.png",
+    image: "/offer-3.webp",
     alt: "Vintage Tour",
     title: "Vintage Heritage Tour",
     desc: "Chauffeur-driven city exploration",
@@ -58,7 +58,7 @@ export const offerItems = [
 
   {
     id: 4,
-    image: "/offer-image4.png",
+    image: "/offer-4.webp",
     alt: "Raven Tea",
     title: "The Raven's Tea",
     desc: "Award-winning afternoon service",

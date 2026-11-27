@@ -337,7 +337,7 @@ button {
 
 .summary-card__image {
   height: 100%;
-  background: linear-gradient(120deg, rgba(184, 156, 78, 0.3), rgba(43, 42, 40, 0.4)), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70');
+  background: linear-gradient(120deg, rgba(184, 156, 78, 0.3), rgba(43, 42, 40, 0.4)), url("/payment-room.webp");
   background-size: cover;
   background-position: center;
   filter: contrast(1.05);

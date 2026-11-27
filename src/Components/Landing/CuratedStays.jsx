@@ -1,7 +1,4 @@
 import "./CuratedStays.css"
-import img1 from "../../assets/suite.png"
-import img2 from "../../assets/Minimalist Studio.png"
-import img3 from "../../assets/Container.png"
 
 function CuratedStays() {
 
@@ -10,19 +7,19 @@ function CuratedStays() {
       title: "The Eko Royal Suite",
       desc: "Ocean view, private balcony, and 24-hour dedicated butler service.",
       price: "₦245,000",
-      img: img1
+      img: "/stay-royal.webp"
     },
     {
       title: "Heritage Loft",
       desc: "Industrial aesthetics meets African craft. Perfect for creative retreats.",
       price: "₦180,000",
-      img: img2
+      img: "/stay-loft.webp"
     },
     {
       title: "Savanna Presidential",
       desc: "Expansive living space with floor-to-ceiling windows and premium bar.",
       price: "₦310,000",
-      img: img3
+      img: "/stay-savanna.webp"
     }
   ]
 
@@ -37,7 +34,14 @@ function CuratedStays() {
           <div className="stay-card" key={index}>
 
             <div className="stay-img">
-              <img src={stay.img} alt={stay.title} />
+              <img
+                src={stay.img}
+                alt={stay.title}
+                width="358"
+                height="320"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <div className="stay-content">

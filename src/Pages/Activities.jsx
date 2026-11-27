@@ -85,7 +85,7 @@ function Activities() {
           <div className="activity-card" key={item.id}>
 
             <div className="activity-img">
-              <img src={item.img} alt={item.name} />
+              <img src={item.img} alt={item.name} loading="lazy" decoding="async" />
             </div>
 
             <div className="activity-content">

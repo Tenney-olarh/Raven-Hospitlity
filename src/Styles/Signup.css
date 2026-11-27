@@ -13,7 +13,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("https://i.pinimg.com/1200x/2c/b2/8a/2cb28ad4549029c292089808dc1eb359.jpg") center/cover no-repeat;
+    background: url("/auth-background.webp") center/cover no-repeat;
     filter: blur(2px);
     transform: scale(1.1);
     animation: zoomBg 20s ease-in-out infinite;

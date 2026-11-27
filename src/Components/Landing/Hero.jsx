@@ -1,5 +1,4 @@
 import "./Hero.css"
-import Himg from "../../assets/Luxury Hotel Suite.png"
 import { FaHome, FaKey, FaHeadset, FaCrown, FaStar } from "react-icons/fa"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -149,7 +148,14 @@ function Hero(){
 
         {/* RIGHT IMAGE */}
         <div className="hero-right">
-          <img src={Himg} alt="Luxury Room" />
+          <img
+            src="/hero-room.webp"
+            alt="Luxury Room"
+            width="720"
+            height="944"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
 
       </div>
