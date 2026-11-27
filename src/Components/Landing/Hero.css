@@ -35,7 +35,7 @@
 .hero-tag{
     font-size: 12px;
     letter-spacing: 2px;
-    color: #a38b5d;
+    color: #7a6538;
     margin-bottom: 30px;
 }
 
@@ -88,9 +88,10 @@
   border-right: none;
 }
 
-.booking-fields small{
+.booking-fields label{
+    display: block;
     font-size: 10px;
-    color: #999;
+    color: #6b6560;
 }
 
 .booking-fields p{
@@ -136,7 +137,7 @@
 /* FOOT TEXT */
 .hero-foot{
     font-size: 10px;
-    color: #aaa;
+    color: #6b6560;
     display: flex;
     margin-bottom: 20px;
     gap: 8px;
@@ -163,6 +164,7 @@
 .hero-right img{
     width: 100%;
     height: 100%;
+    aspect-ratio: 720 / 944;
     object-fit: cover;
     display: block;
     align-items: stretch;
@@ -170,8 +172,8 @@
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    margin-top: 0%;
-    margin-bottom: o;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .hero-features{

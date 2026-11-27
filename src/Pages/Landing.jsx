@@ -6,10 +6,12 @@ import Navbar from "../Components/Landing/Navbar"
 function Landing(){
   return(
     <>
-    <Navbar/>
-    <Hero/>
-    <CuratedStays/>
-    <Footer/>
+      <Navbar />
+      <main id="main-content">
+        <Hero />
+        <CuratedStays />
+      </main>
+      <Footer />
     </>
   )
 }

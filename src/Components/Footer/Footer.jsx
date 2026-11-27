@@ -8,7 +8,7 @@ function Footer() {
     <div className="footer" id="why-raven">
       <div className="footer__main">
         <div className="footer__left">
-          <h1>The Smarter Way to Stay</h1>
+          <h2>The Smarter Way to Stay</h2>
           <p>
             We've reimagined luxury for the modern era. No more waiting in lines
             or standard experiences. Every detail is calibrated to your personal

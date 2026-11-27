@@ -10,7 +10,9 @@ function Navbar (){
     return (
         <nav className="navbar">
            <div className="navbar-logo">
-            <Link to="/"> <img src={logo} alt="Raven Logo" /></Link> 
+            <Link to="/" aria-label="Raven Hospitality home">
+              <img src={logo} alt="Raven Hospitality" width="152" height="42" />
+            </Link>
            </div>
            <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
             <li><a href="#about" onClick={closeMenu}>About</a></li>

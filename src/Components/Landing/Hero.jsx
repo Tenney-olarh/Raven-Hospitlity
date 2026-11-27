@@ -81,8 +81,9 @@ function Hero(){
             <div className="booking-fields">
 
               <div>
-                <small>DESTINATION</small>
+                <label htmlFor="destination">DESTINATION</label>
                 <input
+                  id="destination"
                   type="text"
                   name="destination"
                   value={form.destination}
@@ -92,9 +93,9 @@ function Hero(){
 
               <div
                 className="date-field"
-                onClick={() => document.getElementById("checkIn").showPicker()}
+                onClick={() => document.getElementById("checkIn")?.showPicker?.()}
               >
-                <small>CHECK IN</small>
+                <label htmlFor="checkIn">CHECK IN</label>
                 <input
                   id="checkIn"
                   type="date"
@@ -102,14 +103,16 @@ function Hero(){
                   value={form.checkIn}
                   onChange={handleChange}
                 />
-                <span>{form.checkIn ? formatDate(form.checkIn) : "Add Date"}</span>
+                <span aria-hidden="true">
+                  {form.checkIn ? formatDate(form.checkIn) : "Add Date"}
+                </span>
               </div>
 
               <div
                 className="date-field"
-                onClick={() => document.getElementById("checkOut").showPicker()}
+                onClick={() => document.getElementById("checkOut")?.showPicker?.()}
               >
-                <small>CHECK OUT</small>
+                <label htmlFor="checkOut">CHECK OUT</label>
                 <input
                   id="checkOut"
                   type="date"
@@ -117,12 +120,15 @@ function Hero(){
                   value={form.checkOut}
                   onChange={handleChange}
                 />
-                <span>{form.checkOut ? formatDate(form.checkOut) : "Add Date"}</span>
+                <span aria-hidden="true">
+                  {form.checkOut ? formatDate(form.checkOut) : "Add Date"}
+                </span>
               </div>
 
               <div>
-                <small>GUESTS</small>
+                <label htmlFor="guests">GUESTS</label>
                 <input
+                  id="guests"
                   type="number"
                   name="guests"
                   value={form.guests}

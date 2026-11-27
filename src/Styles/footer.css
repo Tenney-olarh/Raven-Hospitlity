@@ -17,7 +17,7 @@
   align-items: flex-start;
 }
 
-.footer__left h1 {
+.footer__left h2 {
   font-family: var(--font1);
   font-size: 48px;
   line-height: 48px;
@@ -82,7 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--black-60);
+  color: #a8abb2;
   border-top: 2px solid var(--black-70);
 }
 
@@ -102,7 +102,7 @@
   letter-spacing: 1.1px;
   gap: 32px;
   font-size: 11px;
-  color: var(--black-60);
+  color: #a8abb2;
 }
 
 @media (max-width: 1024px) {
@@ -111,7 +111,7 @@
     gap: 48px;
   }
 
-  .footer__left h1 {
+  .footer__left h2 {
     font-size: 40px;
     line-height: 42px;
   }
@@ -138,7 +138,7 @@
     gap: 40px;
   }
 
-  .footer__left h1 {
+  .footer__left h2 {
     font-size: 34px;
     line-height: 38px;
   }
@@ -171,7 +171,7 @@
     gap: 20px;
   }
 
-  .footer__left h1 {
+  .footer__left h2 {
     font-size: 28px;
     line-height: 32px;
   }
