@@ -1,82 +1,115 @@
-import {Link} from "react-router-dom"
-import { useMemo, useState } from 'react';
-import { AppleLogo, GoogleLogo } from '../Components/BrandIcons.jsx';
-import Footer from "../Components/Footer/Footer.jsx"
-import '../Styles/payment.css';
-import logo from  "../assets/logo.svg"
+import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { AppleLogo, GoogleLogo } from "../Components/BrandIcons.jsx";
+import Footer from "../Components/Footer/Footer.jsx";
+import "../Styles/payment.css";
+import logo from "../assets/logo.svg";
 
 const paymentMethods = [
-  { id: 'card', label: 'Credit Card' },
-  { id: 'apple', label: ' Pay', icon: AppleLogo },
-  { id: 'google', label: ' Pay', icon: GoogleLogo },
+  { id: "card", label: "Credit / Debit Card" },
+  { id: "apple", label: "Apple Pay", icon: AppleLogo },
+  { id: "google", label: "Google Pay", icon: GoogleLogo },
 ];
 
 const booking = {
-  title: 'Luxury King Suite',
-  hotel: 'Raven London Central',
-  dates: 'Oct 24 – Oct 27, 2024',
-  duration: '3 Nights',
-  guests: '2 Adults',
+  title: "Luxury King Suite",
+  hotel: "Raven London Central",
+  dates: "Dec 12 – Dec 15, 2026",
+  duration: "3 Nights",
+  guests: "2 Adults",
   roomSubtotal: 225000,
   taxes: 30000,
   total: 255000,
-  currency: '₦',
+  currency: "₦",
 };
 
 const formatCurrency = (value) =>
-  new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
     minimumFractionDigits: 0,
-  }).format(value / 100);
+    maximumFractionDigits: 0,
+  }).format(value);
+
+const isValidExpiry = (value) => {
+  const match = /^(0[1-9]|1[0-2])\/(\d{2})$/.exec(value);
+  if (!match) return false;
+
+  const now = new Date();
+  const month = Number(match[1]);
+  const year = 2000 + Number(match[2]);
+
+  return (
+    year > now.getFullYear() ||
+    (year === now.getFullYear() && month >= now.getMonth() + 1)
+  );
+};
 
 export default function Payment() {
-  const [method, setMethod] = useState('card');
-  const [cardName, setCardName] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiry, setExpiry] = useState('');
-  const [cvv, setCvv] = useState('');
+  const [method, setMethod] = useState("card");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiry, setExpiry] = useState("");
+  const [cvv, setCvv] = useState("");
   const [saveCard, setSaveCard] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+
+  const isCard = method === "card";
 
   const canSubmit = useMemo(() => {
-    if (method !== 'card') return true;
-    return cardName.trim() && cardNumber.replace(/\s+/g, '').length >= 12 && expiry.length >= 4 && cvv.length >= 3;
-  }, [method, cardName, cardNumber, expiry, cvv]);
+    if (!isCard) return true;
+
+    const digits = cardNumber.replace(/\D/g, "");
+
+    return Boolean(
+      cardName.trim() &&
+        digits.length >= 15 &&
+        digits.length <= 16 &&
+        isValidExpiry(expiry) &&
+        /^\d{3,4}$/.test(cvv)
+    );
+  }, [isCard, cardName, cardNumber, expiry, cvv]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (canSubmit) setConfirmed(true);
+  };
 
   return (
     <div className="app">
       <header className="topbar">
-        <div className="brand">
-            <Link to="/"> <img src={logo} alt="Raven Logo" /></Link> 
+        <div className="payment-brand">
+          <Link to="/" aria-label="Raven Hospitality home">
+            <img className="brand__logo" src={logo} alt="Raven Hospitality" />
+          </Link>
         </div>
 
-        <nav className="nav">
-          <a href="#" className="nav-link">
-            Destinations
-          </a>
-          <a href="#" className="nav-link">
-            Experiences
-          </a>
-          <a href="#" className="nav-link">
-            My Stays
-          </a>
-          <a href="#" className="nav-link">
-            Membership
-          </a>
+        <nav className="payment-nav" aria-label="Main navigation">
+          <a href="#" className="payment-nav-link">Destinations</a>
+          <a href="#" className="payment-nav-link">Experiences</a>
+          <a href="#" className="payment-nav-link">My Stays</a>
+          <a href="#" className="payment-nav-link">Membership</a>
         </nav>
 
-        <div className="profile">
-          <div className="avatar" aria-hidden="false">
-            J
-          </div>
+        <div className="payment-profile">
+          <div className="payment-avatar" aria-label="Signed in as Julian">J</div>
         </div>
       </header>
 
-      <main className="page">
+      <main className="payment-page">
         <section className="checkout">
           <div className="checkout__form">
             <h1 className="checkout__title">Secure Checkout</h1>
-            <p className="checkout__subtitle">Confirm your details for an exceptional stay in London.</p>
+            <p className="checkout__subtitle">
+              Confirm your details for an exceptional stay in London.
+            </p>
+
+            {confirmed && (
+              <div className="confirmation" role="status">
+                <strong>Booking confirmed.</strong> A confirmation has been sent
+                for your stay at {booking.hotel}.
+              </div>
+            )}
 
             <fieldset className="payment-methods" aria-label="Payment method">
               <legend className="sr-only">Payment method</legend>
@@ -86,91 +119,128 @@ export default function Payment() {
                   <button
                     key={item.id}
                     type="button"
-                    className={`payment-method${method === item.id ? ' active' : ''}`}
-                    onClick={() => setMethod(item.id)}
+                    className={`payment-method${method === item.id ? " active" : ""}`}
+                    aria-pressed={method === item.id}
+                    onClick={() => {
+                      setMethod(item.id);
+                      setConfirmed(false);
+                    }}
                   >
-                    {Icon ? <Icon className="payment-method__icon" /> : null}
+                    {Icon && <Icon className="payment-method__icon" />}
                     <span>{item.label}</span>
                   </button>
                 );
               })}
             </fieldset>
 
-            <form className="payment-form" onSubmit={(event) => event.preventDefault()}>
-              <label className="field">
-                <span className="field__label">Cardholder name</span>
-                <input
-                  className="field__input"
-                  placeholder="e.g. Julian Raven"
-                  value={cardName}
-                  onChange={(e) => setCardName(e.target.value)}
-                />
-              </label>
+            <form className="payment-form" onSubmit={handleSubmit} noValidate>
+              {isCard ? (
+                <>
+                  <label className="field">
+                    <span className="field__label">Cardholder name</span>
+                    <input
+                      className="field__input"
+                      name="cc-name"
+                      autoComplete="cc-name"
+                      placeholder="e.g. Julian Raven"
+                      value={cardName}
+                      onChange={(e) => setCardName(e.target.value)}
+                    />
+                  </label>
 
-              <label className="field">
-                <span className="field__label">Card number</span>
-                <div className="field__row">
-                  <input
-                    className="field__input"
-                    placeholder="0000 0000 0000 0000"
-                    inputMode="numeric"
-                    maxLength={19}
-                    value={cardNumber}
-                    onChange={(e) => {
-                      const cleaned = e.target.value.replace(/\D/g, '');
-                      const formatted = cleaned.replace(/(.{4})/g, '$1 ').trim();
-                      setCardNumber(formatted);
-                    }}
-                  />
-                  <span className="field__icon" aria-hidden="true">💳</span>
+                  <label className="field">
+                    <span className="field__label">Card number</span>
+                    <div className="field__row">
+                      <input
+                        className="field__input"
+                        name="cc-number"
+                        autoComplete="cc-number"
+                        placeholder="0000 0000 0000 0000"
+                        inputMode="numeric"
+                        maxLength={19}
+                        value={cardNumber}
+                        onChange={(e) => {
+                          const digits = e.target.value.replace(/\D/g, "").slice(0, 16);
+                          setCardNumber(digits.replace(/(.{4})/g, "$1 ").trim());
+                        }}
+                      />
+                      <span className="field__icon" aria-hidden="true">💳</span>
+                    </div>
+                  </label>
+
+                  <div className="field-grid">
+                    <label className="field">
+                      <span className="field__label">Expiry date</span>
+                      <input
+                        className="field__input"
+                        name="cc-exp"
+                        autoComplete="cc-exp"
+                        placeholder="MM / YY"
+                        inputMode="numeric"
+                        maxLength={5}
+                        value={expiry}
+                        onChange={(e) => {
+                          const digits = e.target.value.replace(/\D/g, "").slice(0, 4);
+                          setExpiry(
+                            digits.length > 2
+                              ? `${digits.slice(0, 2)}/${digits.slice(2)}`
+                              : digits
+                          );
+                        }}
+                      />
+                    </label>
+
+                    <label className="field">
+                      <span className="field__label">CVV</span>
+                      <input
+                        className="field__input"
+                        name="cc-csc"
+                        autoComplete="cc-csc"
+                        type="password"
+                        placeholder="000"
+                        inputMode="numeric"
+                        maxLength={4}
+                        value={cvv}
+                        onChange={(e) => setCvv(e.target.value.replace(/\D/g, ""))}
+                      />
+                    </label>
+                  </div>
+
+                  <label className="checkbox">
+                    <input
+                      type="checkbox"
+                      name="save-card"
+                      checked={saveCard}
+                      onChange={(e) => setSaveCard(e.target.checked)}
+                    />
+                    <span>Save card for future stays</span>
+                  </label>
+                </>
+              ) : (
+                <div className="wallet-note">
+                  <span aria-hidden="true">↗</span>
+                  <p>
+                    You’ll be asked to approve this payment with{" "}
+                    <strong>{method === "apple" ? "Apple Pay" : "Google Pay"}</strong>{" "}
+                    after you continue.
+                  </p>
                 </div>
-              </label>
-
-              <div className="field-grid">
-                <label className="field">
-                  <span className="field__label">Expiry date</span>
-                  <input
-                    className="field__input"
-                    placeholder="MM / YY"
-                    inputMode="numeric"
-                    maxLength={5}
-                    value={expiry}
-                    onChange={(e) => {
-                      const cleaned = e.target.value.replace(/\D/g, '');
-                      const formatted = cleaned.replace(/(.{2})/, '$1/');
-                      setExpiry(formatted.slice(0, 5));
-                    }}
-                  />
-                </label>
-
-                <label className="field">
-                  <span className="field__label">CVV</span>
-                  <input
-                    className="field__input"
-                    placeholder="000"
-                    inputMode="numeric"
-                    maxLength={4}
-                    value={cvv}
-                    onChange={(e) => setCvv(e.target.value.replace(/\D/g, ''))}
-                  />
-                </label>
-              </div>
-
-              <label className="checkbox">
-                <input
-                  type="checkbox"
-                  checked={saveCard}
-                  onChange={(e) => setSaveCard(e.target.checked)}
-                />
-                <span>Save card for future stays</span>
-              </label>
+              )}
 
               <button type="submit" disabled={!canSubmit} className="cta">
-                Complete Booking
+                {isCard ? "Complete Booking" : `Continue with ${method === "apple" ? "Apple Pay" : "Google Pay"}`}
               </button>
 
+              {isCard && !canSubmit && (
+                <p className="form-hint">
+                  Enter a valid card name, number, future expiry date and CVV to
+                  continue.
+                </p>
+              )}
+
               <p className="disclaimer">
-                By clicking “Complete Booking” you agree to Raven’s <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                By continuing you agree to Raven’s{" "}
+                <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
               </p>
             </form>
           </div>
@@ -179,11 +249,11 @@ export default function Payment() {
             <div className="summary-card">
               <div className="summary-card__media" aria-hidden="true">
                 <div className="summary-card__image" />
-                <div className="summary-card__badge">Raven London Central</div>
               </div>
 
               <div className="summary-card__content">
-                <h2 className="summary-card__title">Luxury King Suite</h2>
+                <span className="summary-card__badge">{booking.hotel}</span>
+                <h2 className="summary-card__title">{booking.title}</h2>
                 <dl className="summary-card__details">
                   <div className="detail">
                     <dt>Dates</dt>
@@ -205,92 +275,30 @@ export default function Payment() {
                     <span>{formatCurrency(booking.roomSubtotal)}</span>
                   </div>
                   <div className="pricing-row">
-                    <span>Taxes & fees</span>
+                    <span>Taxes &amp; fees</span>
                     <span>{formatCurrency(booking.taxes)}</span>
                   </div>
                   <div className="pricing-row total">
                     <span>Total</span>
-                    <span>
-                      {booking.currency}
-                      {booking.total.toLocaleString()}
-                    </span>
+                    <span>{formatCurrency(booking.total)}</span>
                   </div>
                 </div>
 
                 <div className="summary-card__benefits">
-                  <div className="benefit">
-                    {/* <span className="benefit__icon" aria-hidden="true">
-                      🔒
-                    </span> */}
-                    <div>
-                      <button className="SSL"> 🔒 SECURE SSL ENCRYPTION</button>
-                    </div>
-                  </div>
-                  <div className="benefit">
-                    {/* <span className="benefit__icon" aria-hidden="true">
-                      ⚡
-                    </span>*/}
-                    <div>
-                      <button className="INSTANT"> ⚡ INSTANT CONFIRMATION</button>
-                    </div>
-                  </div>
+                  <span className="benefit-chip">
+                    <span aria-hidden="true">🔒</span> Secure SSL encryption
+                  </span>
+                  <span className="benefit-chip">
+                    <span aria-hidden="true">⚡</span> Instant confirmation
+                  </span>
                 </div>
               </div>
             </div>
-
-            
           </aside>
         </section>
       </main>
-{/* <div className="callout">
-              <div className="callout__content">
-                <h3>The smarter way to stay</h3>
-                <p>
-                  We’ve reimagined luxury for the modern era. No more waiting in lines or standard experiences. Every detail is
-                  calibrated to your personal taste.
-                </p>
-                <button className="callout__cta">Start booking</button>
-              </div>
-              <ul className="callout__features">
-                <li>
-                  <span className="feature-icon">📱</span>
-                  <div>
-                    <strong>Mobile-first booking</strong>
-                    <span>Secure your suite in under 60 seconds with our streamlined mobile interface.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">🗝️</span>
-                  <div>
-                    <strong>Digital key & check‑in</strong>
-                    <span>Bypass the front desk. Your phone is your key, and check‑in is instantaneous.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">💡</span>
-                  <div>
-                    <strong>Personalized preferences</strong>
-                    <span>Room temperature, lighting scenes, and pillow types remembered across every stay.</span>
-                  </div>
-                </li>
-                <li>
-                  <span className="feature-icon">🤝</span>
-                  <div>
-                    <strong>Elite concierge</strong>
-                    <span>Dedicated human support for travel arrangements, reservations, and local insights.</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-      <footer className="footer">
-        <span>© {new Date().getFullYear()} Raven Hospitality Group. All rights reserved.</span>
-        <div className="footer__links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Contact</a>
-        </div>
-      </footer> */}
-      <Footer/>
+
+      <Footer />
     </div>
   );
 }
