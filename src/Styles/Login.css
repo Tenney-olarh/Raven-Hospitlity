@@ -79,7 +79,7 @@
     text-align: center;
     margin-bottom: 30px;
 }
-.login-childa h6{
+.login-childa .login-eyebrow{
     font-size: 14px;
     margin-bottom: 20px;
     color:#e4d1a6;
@@ -91,7 +91,7 @@
     margin-bottom: 20px;
     color: #ede0c4; 
 }
-.login-childa h5{
+.login-childa .login-intro{
     font-size: 16px;
     color: #e4d1a6;
 }
@@ -249,7 +249,7 @@
         margin-bottom: 24px;
     }
 
-    .login-childa h6 {
+    .login-childa .login-eyebrow {
         font-size: 12px;
         margin-bottom: 16px;
     }
@@ -259,7 +259,7 @@
         margin-bottom: 16px;
     }
 
-    .login-childa h5 {
+    .login-childa .login-intro {
         font-size: 14px;
     }
 

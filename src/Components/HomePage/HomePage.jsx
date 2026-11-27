@@ -55,20 +55,22 @@ useEffect(() => {
   return (
     <div className="dashboard">
       <Navbar menu={menu  } />
-      <Hero userName={user.firstName} actions={homeActions} />
-      <Status
-        userFullName={user.fullName}
-        pointCount={user.point}
-        remainingPoints={user.remainingPoint}
-        tier={user.tier}
-        nextTier={user.nextTier}
-        hotelName={hotelName}
-        roomType={roomType}
-        confirmationID={user.confirmationID}
-        userCheckinDate={userCheckinDate}
-        userCheckoutDate={userCheckoutDate}
-      />
-      <Offer offers={offerItems} />
+      <main>
+        <Hero userName={user.firstName} actions={homeActions} />
+        <Status
+          userFullName={user.fullName}
+          pointCount={user.point}
+          remainingPoints={user.remainingPoint}
+          tier={user.tier}
+          nextTier={user.nextTier}
+          hotelName={hotelName}
+          roomType={roomType}
+          confirmationID={user.confirmationID}
+          userCheckinDate={userCheckinDate}
+          userCheckoutDate={userCheckoutDate}
+        />
+        <Offer offers={offerItems} />
+      </main>
       <Footer />
     </div>
   );

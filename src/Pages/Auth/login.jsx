@@ -20,7 +20,7 @@ function Login() {
   };
 
   return (
-    <div className="login-parent">
+    <main className="login-parent">
       <div className="login-logo">
         <Link to="/">
           <img src={logo} alt="Raven Logo" />
@@ -29,14 +29,14 @@ function Login() {
 
       <div className="login-child">
         <header className="login-childa">
-          <h6>A NEW STANDARD IN HOSPITALITY</h6>
+          <p className="login-eyebrow">A NEW STANDARD IN HOSPITALITY</p>
           <h1>
             Where Every Stay <br className="login-break" /> Feels Intentional
           </h1>
-          <h5>
+          <p className="login-intro">
             Raven brings together seamless booking, <br className="login-break" />
             digital check-in, and curated guest experiences
-          </h5>
+          </p>
         </header>
 
         <div className="login-form">
@@ -61,7 +61,7 @@ function Login() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

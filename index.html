@@ -13,22 +13,15 @@
     <meta name="description" content="Raven Hospitality — refined stays, curated experiences and effortless booking." />
     <title>Raven Hospitality</title>
 
-    <!-- Fonts are non-blocking: text paints immediately with the system
-         fallback instead of waiting on fonts.googleapis.com. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts are self-hosted (see src/Styles/fonts.css); preload the one
+         used by almost every screen so text paints with the right metrics. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700&amp;display=optional"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
+      rel="preload"
+      href="/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700&amp;display=optional"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- Hero image is the LCP element on the landing page -->
     <link rel="preload" as="image" href="/hero-room.webp" type="image/webp" fetchpriority="high" />

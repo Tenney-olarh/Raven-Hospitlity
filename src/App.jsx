@@ -1,5 +1,4 @@
-import { lazy, Suspense } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./Pages/Landing";
 import "./Styles/global.css";
@@ -20,7 +19,25 @@ const Spa = lazy(() => import("./Pages/Spa"));
 const Activities = lazy(() => import("./Pages/Activities"));
 const Housekeeping = lazy(() => import("./Pages/Housekeeping"));
 
+// Load analytics after the first interaction window so it never blocks LCP/INP.
+const SpeedInsights = lazy(() =>
+  import("@vercel/speed-insights/react").then((module) => ({
+    default: module.SpeedInsights,
+  }))
+);
+
 function App() {
+  const [insightsReady, setInsightsReady] = useState(false);
+
+  useEffect(() => {
+    const schedule = window.requestIdleCallback
+      ? (callback) => window.requestIdleCallback(callback, { timeout: 2500 })
+      : (callback) => window.setTimeout(callback, 1800);
+    const cancel = window.cancelIdleCallback || window.clearTimeout;
+    const handle = schedule(() => setInsightsReady(true));
+    return () => cancel(handle);
+  }, []);
+
   return (
     <>
       <Suspense fallback={null}>
@@ -43,7 +60,11 @@ function App() {
         </Routes>
       </Suspense>
 
-      <SpeedInsights />
+      {insightsReady && (
+        <Suspense fallback={null}>
+          <SpeedInsights />
+        </Suspense>
+      )}
     </>
   );
 }

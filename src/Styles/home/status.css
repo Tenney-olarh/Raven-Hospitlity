@@ -61,7 +61,7 @@
   line-height: 16px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--color1);
+  color: #8a6a20;
 }
 
 .event__desc h3 {
@@ -93,7 +93,7 @@
   line-height: 15px;
   letter-spacing: -0.5px;
   text-transform: uppercase;
-  color: hsla(215, 20%, 65%, 1);
+  color: #64707e;
 }
 
 .event__schedule h3 {
@@ -106,7 +106,7 @@
 
 .event__cta {
   margin-top: 24px;
-  background-color: var(--color1);
+  background-color: #80611d;
   padding-top: 12px;
   padding-bottom: 12px;
   font-family: var(--font4);
